@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kitabisakoding/courseCard.dart';
+import 'package:kitabisakoding/data/courseData.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -21,10 +23,6 @@ class HomeScreen extends StatelessWidget {
                     Color(0xFF00206f),
                   ],
                 ),
-                // borderRadius: BorderRadius.only(
-                //   bottomLeft: Radius.circular(18),
-                //   bottomRight: Radius.circular(18),
-                // ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -35,7 +33,14 @@ class HomeScreen extends StatelessWidget {
                     height: 16,
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 5),
+                    margin: EdgeInsets.only(left: 5, right: 3),
+                    width: 2,
+                    height: 20,
+                    decoration: BoxDecoration(
+                      color: Colors.orange,
+                    ),
+                  ),
+                  Container(
                     child: Text(
                       'KitaBisaKoding',
                       style: TextStyle(
@@ -51,7 +56,7 @@ class HomeScreen extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+                padding: EdgeInsets.only(top: 30, left: 16, right: 16),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -61,40 +66,43 @@ class HomeScreen extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: 12),
-                        decoration: BoxDecoration(color: Colors.mainColor),
-                        height: 120,
+                      // FRONTEND
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text("FrontEnd Dev"),
+                          Container(
+                            height: 240,
+                            margin: EdgeInsets.only(top: 6, bottom: 26),
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: courseDataListFE.map((course) {
+                                return CourseCard(
+                                  data: course,
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                        ],
                       ),
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: 12),
-                        decoration: BoxDecoration(color: Colors.mainColor),
-                        height: 120,
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: 12),
-                        decoration: BoxDecoration(color: Colors.mainColor),
-                        height: 120,
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: 12),
-                        decoration: BoxDecoration(color: Colors.mainColor),
-                        height: 120,
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: 12),
-                        decoration: BoxDecoration(color: Colors.mainColor),
-                        height: 120,
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: 12),
-                        decoration: BoxDecoration(color: Colors.mainColor),
-                        height: 120,
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: 12),
-                        decoration: BoxDecoration(color: Colors.mainColor),
-                        height: 120,
+                      // BECKEND
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text("FrontEnd Dev"),
+                          Container(
+                            height: 240,
+                            margin: EdgeInsets.only(top: 6, bottom: 26),
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: courseDataListBE.map((course) {
+                                return CourseCard(
+                                  data: course,
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
