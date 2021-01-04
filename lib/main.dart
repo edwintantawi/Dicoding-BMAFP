@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kitabisakoding/homeScreen.dart';
+import 'package:kitabisakoding/screen/homeScreen.dart';
 
 void main() => runApp(MyApp());
 

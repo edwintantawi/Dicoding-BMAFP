@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kitabisakoding/detailsScreen.dart';
+import 'package:kitabisakoding/screen/detailsScreen.dart';
 import 'package:kitabisakoding/model/courseModel.dart';
 
 class CourseCard extends StatelessWidget {
