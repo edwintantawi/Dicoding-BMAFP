@@ -9,61 +9,96 @@ class CourseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 150,
-      padding: EdgeInsets.only(
-        top: 16,
-      ),
-      margin: EdgeInsets.only(right: 10),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.mainColor,
+    return FlatButton(
+      padding: EdgeInsets.all(0),
+      child: Container(
+        width: 140,
+        padding: EdgeInsets.only(
+          top: 16,
         ),
-        borderRadius: BorderRadius.all(Radius.circular(6)),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            child: Image.asset(
-              data.image,
-              height: 80,
-            ),
+        margin: EdgeInsets.only(right: 10),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.mainColor,
           ),
-          Container(
-            alignment: Alignment.center,
-            margin: EdgeInsets.symmetric(vertical: 6, horizontal: 8),
-            child: Text(
-              data.name,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
+          borderRadius: BorderRadius.all(Radius.circular(6)),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              margin: EdgeInsets.only(
+                bottom: 12,
+              ),
+              child: Image.asset(
+                data.image,
+                height: 65,
               ),
             ),
-          ),
-          Container(
-            child: FlatButton(
-              color: Colors.mainColor,
-              height: 50,
-              child: Text(
-                "ENROLL NOW",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 11,
+            Container(
+              height: 110,
+              padding: EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.mainColor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                  topRight: Radius.circular(12),
+                  bottomLeft: Radius.circular(4),
+                  bottomRight: Radius.circular(4),
                 ),
               ),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return DetailScreen(
-                    data: data,
-                  );
-                }));
-              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        data.name,
+                        maxLines: 2,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(
+                          top: 3,
+                        ),
+                        child: Text(
+                          data.description,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 3,
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontWeight: FontWeight.w200,
+                            fontSize: 10,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    child: Text(
+                      data.price,
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.orangeAccent,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
+      onPressed: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return DetailScreen(data: data);
+        }));
+      },
     );
   }
 }

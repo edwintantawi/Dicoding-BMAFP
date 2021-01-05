@@ -18,6 +18,7 @@ class ContainerPart extends StatelessWidget {
             )),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: children,
           ),
         ),

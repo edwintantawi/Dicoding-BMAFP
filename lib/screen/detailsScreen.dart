@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kitabisakoding/elements/secondaryBar.dart';
 import 'package:kitabisakoding/model/courseModel.dart';
 import 'package:kitabisakoding/parts/containerPart.dart';
 import 'package:kitabisakoding/parts/heroPart.dart';
@@ -16,29 +17,62 @@ class DetailScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             HeroPart(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Image.asset(
-                  data.image,
-                  height: 100,
+                Container(
+                  alignment: Alignment.topLeft,
+                  child: IconButton(
+                    padding: EdgeInsets.all(0),
+                    icon: Icon(
+                      Icons.arrow_back_rounded,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      '${data.name} Course\'s',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
             ContainerPart(
               children: <Widget>[
-                Text(
-                  '${data.name}\n${data.description}',
+                Container(
+                  margin: EdgeInsets.only(bottom: 26),
+                  child: Image.asset(
+                    data.image,
+                    height: 90,
+                  ),
                 ),
-                Text(
-                  '${data.name}\n${data.description}',
-                ),
-                Text(
-                  '${data.name}\n${data.description}',
-                ),
-                Text(
-                  '${data.name}\n${data.description}',
-                ),
-                Text(
-                  '${data.name}\n${data.description}',
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(bottom: 12),
+                      child: Text(
+                        data.name,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      data.description,
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -78,7 +112,7 @@ class DetailScreen extends StatelessWidget {
                       Text(
                         data.price,
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.orangeAccent,
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
@@ -90,7 +124,9 @@ class DetailScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) {
-                      return CheckoutScreen();
+                      return CheckoutScreen(
+                        data: data,
+                      );
                     }),
                   );
                 },

@@ -14,7 +14,7 @@ class SectionPart extends StatelessWidget {
       children: <Widget>[
         Text(title),
         Container(
-          height: 240,
+          height: 205,
           margin: EdgeInsets.only(top: 6, bottom: 26),
           child: ListView(
             scrollDirection: Axis.horizontal,

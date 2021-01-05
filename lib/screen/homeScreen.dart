@@ -14,28 +14,36 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             HeroPart(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset(
-                  'images/kitaBisaKoding.png',
-                  height: 16,
-                ),
                 Container(
-                  margin: EdgeInsets.only(left: 5, right: 3),
-                  width: 2,
-                  height: 20,
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                  ),
-                ),
-                Container(
-                  child: Text(
-                    'KitaBisaKoding',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: Colors.white,
-                      letterSpacing: 2,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Image.asset(
+                        'images/kitaBisaKoding.png',
+                        height: 16,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 5, right: 3),
+                        width: 2,
+                        height: 20,
+                        decoration: BoxDecoration(
+                          color: Colors.orange,
+                        ),
+                      ),
+                      Container(
+                        child: Text(
+                          'KitaBisaKoding',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Colors.white,
+                            letterSpacing: 2,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
