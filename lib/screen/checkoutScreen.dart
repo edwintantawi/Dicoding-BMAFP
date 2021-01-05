@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kitabisakoding/model/courseModel.dart';
 import 'package:kitabisakoding/parts/containerPart.dart';
 import 'package:kitabisakoding/parts/heroPart.dart';
+import 'package:kitabisakoding/screen/confirmedScreen.dart';
 
 class CheckoutScreen extends StatefulWidget {
   final CourseData data;
@@ -14,7 +15,7 @@ class CheckoutScreen extends StatefulWidget {
 class _CheckoutScreen extends State<CheckoutScreen> {
   String name = '';
   String email = '';
-  String numberPhone = '';
+  String phoneNumber = '';
 
   @override
   Widget build(BuildContext context) {
@@ -150,7 +151,7 @@ class _CheckoutScreen extends State<CheckoutScreen> {
                                 ),
                                 onChanged: (String value) {
                                   setState(() {
-                                    numberPhone = value;
+                                    phoneNumber = value;
                                   });
                                 },
                               ),
@@ -193,12 +194,20 @@ class _CheckoutScreen extends State<CheckoutScreen> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) {
-                      return CheckoutScreen();
-                    }),
-                  );
+                  if (name != '' && email != '' && phoneNumber != '') {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return ConfirmedScreen(
+                          name: name,
+                          email: email,
+                          phoneNumber: phoneNumber,
+                        );
+                      }),
+                    );
+                  } else {
+                    return null;
+                  }
                 },
               ),
             ),

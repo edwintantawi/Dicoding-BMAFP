@@ -53,6 +53,7 @@ flutter:
     - images/courseImage/mobile/
     - images/courseImage/database/
     - images/courseImage/cms/
+    - images/illustration/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
