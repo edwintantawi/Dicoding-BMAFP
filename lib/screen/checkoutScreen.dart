@@ -21,7 +21,6 @@ class _CheckoutScreen extends State<CheckoutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: null,
       body: Container(
         decoration: BoxDecoration(color: Colors.mainColor),
         child: Column(
@@ -43,17 +42,19 @@ class _CheckoutScreen extends State<CheckoutScreen> {
                     },
                   ),
                 ),
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      "Checkout Course's",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                Stack(
+                  children: <Widget>[
+                    Center(
+                      child: Text(
+                        "Checkout Course's",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ],
             ),

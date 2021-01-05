@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:kitabisakoding/model/courseModel.dart';
 import 'package:kitabisakoding/parts/containerPart.dart';
 import 'package:kitabisakoding/parts/heroPart.dart';
@@ -7,10 +8,10 @@ import 'package:kitabisakoding/screen/checkoutScreen.dart';
 class DetailScreen extends StatelessWidget {
   final CourseData data;
   DetailScreen({Key key, this.data});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: null,
       body: Container(
         decoration: BoxDecoration(color: Colors.mainColor),
         child: Column(
@@ -32,17 +33,19 @@ class DetailScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      "${data.name} Course's",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                Stack(
+                  children: [
+                    Center(
+                      child: Text(
+                        "${data.name} Course's",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ],
             ),
