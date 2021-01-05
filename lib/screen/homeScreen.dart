@@ -66,10 +66,6 @@ class HomeScreen extends StatelessWidget {
                   title: "Database Development",
                   data: courseDataListDB,
                 ),
-                SectionPart(
-                  title: "CMS Development",
-                  data: courseDataListCMS,
-                ),
               ],
             ),
           ],

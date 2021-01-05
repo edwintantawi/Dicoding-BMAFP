@@ -35,7 +35,7 @@ class DetailScreen extends StatelessWidget {
                 Expanded(
                   child: Center(
                     child: Text(
-                      '${data.name} Course\'s',
+                      "${data.name} Course's",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -70,6 +70,105 @@ class DetailScreen extends StatelessWidget {
                     ),
                     Text(
                       data.description,
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 30),
+                      padding: EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.all(Radius.circular(6))),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: <Widget>[
+                              Icon(
+                                Icons.people,
+                                size: 32,
+                                color: Colors.mainColor,
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 8),
+                                child: Column(
+                                  children: <Widget>[
+                                    Text(
+                                      "Members",
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                      ),
+                                    ),
+                                    Text(
+                                      data.members,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Icon(
+                                Icons.star,
+                                size: 35,
+                                color: Colors.amber,
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 8),
+                                child: Column(
+                                  children: <Widget>[
+                                    Text(
+                                      "Rating's",
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                      ),
+                                    ),
+                                    Text(
+                                      data.ratings,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Icon(
+                                Icons.book,
+                                size: 32,
+                                color: Colors.lightGreen,
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 8),
+                                child: Column(
+                                  children: <Widget>[
+                                    Text(
+                                      "Course's",
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                      ),
+                                    ),
+                                    Text(
+                                      data.courses,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

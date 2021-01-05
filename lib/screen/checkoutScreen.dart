@@ -1,5 +1,3 @@
-import 'dart:wasm';
-
 import 'package:flutter/material.dart';
 import 'package:kitabisakoding/model/courseModel.dart';
 import 'package:kitabisakoding/parts/containerPart.dart';
@@ -48,7 +46,7 @@ class _CheckoutScreen extends State<CheckoutScreen> {
                 Expanded(
                   child: Center(
                     child: Text(
-                      'Checkout Course\'s',
+                      "Checkout Course's",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -111,7 +109,7 @@ class _CheckoutScreen extends State<CheckoutScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text("Checkout Form\'s"),
+                      Text("Checkout Form's"),
                       Container(
                         child: Column(
                           children: <Widget>[
