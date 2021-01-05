@@ -53,7 +53,6 @@ flutter:
     - images/courseImage/backend/
     - images/courseImage/mobile/
     - images/courseImage/database/
-    - images/courseImage/cms/
     - images/illustration/
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -79,11 +78,6 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   fonts:
-    - family: Montserrat
-      fonts:
-        - asset: fonts/Montserrat/Montserrat-Regular.ttf
-        - asset: fonts/Montserrat/Montserrat-Bold.ttf
-          weight: 700
     - family: QuickSand
       fonts:
         - asset: fonts/QuickSand/QuickSand-Regular.ttf
