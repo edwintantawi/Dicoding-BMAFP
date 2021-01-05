@@ -35,7 +35,7 @@ class SecondaryBar extends StatelessWidget {
                 Expanded(
                   child: Center(
                     child: Text(
-                      'Checkout ${title}',
+                      'Checkout $title',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,

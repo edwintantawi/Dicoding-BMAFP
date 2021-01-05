@@ -106,9 +106,10 @@ class ConfirmedScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  Navigator.pushAndRemoveUntil(context,
+                      MaterialPageRoute(builder: (context) {
                     return HomeScreen();
-                  }));
+                  }), ModalRoute.withName("/Home"));
                 },
               ),
             ],

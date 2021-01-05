@@ -1,8 +1,11 @@
+import 'dart:wasm';
+
 import 'package:flutter/material.dart';
 import 'package:kitabisakoding/model/courseModel.dart';
 import 'package:kitabisakoding/parts/containerPart.dart';
 import 'package:kitabisakoding/parts/heroPart.dart';
 import 'package:kitabisakoding/screen/confirmedScreen.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 class CheckoutScreen extends StatefulWidget {
   final CourseData data;
@@ -118,6 +121,7 @@ class _CheckoutScreen extends State<CheckoutScreen> {
                                 decoration: InputDecoration(
                                   hintText: "Nama Lengkap",
                                   border: OutlineInputBorder(),
+                                  prefixIcon: Icon(Icons.person_outline),
                                 ),
                                 onChanged: (String value) {
                                   setState(() {
@@ -132,6 +136,7 @@ class _CheckoutScreen extends State<CheckoutScreen> {
                                 keyboardType: TextInputType.emailAddress,
                                 decoration: InputDecoration(
                                   hintText: "Email",
+                                  prefixIcon: Icon(Icons.email),
                                   border: OutlineInputBorder(),
                                 ),
                                 onChanged: (String value) {
@@ -143,17 +148,21 @@ class _CheckoutScreen extends State<CheckoutScreen> {
                             ),
                             Container(
                               margin: EdgeInsets.symmetric(vertical: 6),
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                                decoration: InputDecoration(
-                                  hintText: "Nomor Handphone",
-                                  border: OutlineInputBorder(),
-                                ),
-                                onChanged: (String value) {
-                                  setState(() {
-                                    phoneNumber = value;
-                                  });
-                                },
+                              child: Column(
+                                children: <Widget>[
+                                  TextField(
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        hintText: "Nomor Handphone",
+                                        border: OutlineInputBorder(),
+                                        prefixIcon: Icon(Icons.phone)),
+                                    onChanged: (String value) {
+                                      setState(() {
+                                        phoneNumber = value;
+                                      });
+                                    },
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -195,10 +204,10 @@ class _CheckoutScreen extends State<CheckoutScreen> {
                 ),
                 onPressed: () {
                   if (name != '' && email != '' && phoneNumber != '') {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) {
-                        return ConfirmedScreen(
+                        return LoadingScreen(
                           name: name,
                           email: email,
                           phoneNumber: phoneNumber,
@@ -214,6 +223,33 @@ class _CheckoutScreen extends State<CheckoutScreen> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class LoadingScreen extends StatelessWidget {
+  final String name;
+  final String email;
+  final String phoneNumber;
+
+  LoadingScreen({Key key, this.name, this.email, this.phoneNumber});
+
+  @override
+  Widget build(BuildContext context) {
+    return SplashScreen(
+      seconds: 2,
+      navigateAfterSeconds: ConfirmedScreen(
+        name: name,
+        email: email,
+        phoneNumber: phoneNumber,
+      ),
+      backgroundColor: Colors.mainColor,
+      title: Text(
+        "Checking Out...",
+        textScaleFactor: 2,
+        style: TextStyle(color: Colors.white),
+      ),
+      loaderColor: Colors.white,
     );
   }
 }

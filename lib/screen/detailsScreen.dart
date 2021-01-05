@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kitabisakoding/elements/secondaryBar.dart';
 import 'package:kitabisakoding/model/courseModel.dart';
 import 'package:kitabisakoding/parts/containerPart.dart';
 import 'package:kitabisakoding/parts/heroPart.dart';
